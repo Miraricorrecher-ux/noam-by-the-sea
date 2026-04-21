@@ -1,573 +1,270 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Noam By the Sea | Apartamentos exclusivos en Tamarindo</title>
-  <meta name="description" content="Apartamentos vacacionales exclusivos en Tamarindo, Costa Rica. Diseñados para parejas y huéspedes a partir de los 13 años." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Noam By the Sea | Exclusive Apartments in Tamarindo</title>
+
+  <!-- Tipografía elegante -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg:#f7f3ee;
-      --text:#1f1f1f;
-      --muted:#6f6a65;
-      --accent:#b89263;
+      --bg:#f6f3ef;
+      --text:#1a1a1a;
+      --muted:#6b6b6b;
+      --accent:#b79b6c;
       --white:#ffffff;
-      --dark:#121212;
-      --card:#fcfaf7;
       --border:rgba(0,0,0,.08);
-      --shadow:0 18px 45px rgba(0,0,0,.10);
-      --radius:20px;
-      --max:1180px;
+      --radius:18px;
+      --max:1200px;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
+    *{margin:0;padding:0;box-sizing:border-box}
     body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      font-family:'Inter',sans-serif;
       background:var(--bg);
       color:var(--text);
       line-height:1.6;
     }
 
-    a{text-decoration:none;color:inherit}
-    .container{width:min(92%,var(--max));margin:0 auto}
+    h1,h2,h3{font-family:'Playfair Display',serif}
 
-    .topbar{
-      position:sticky;
+    a{text-decoration:none;color:inherit}
+
+    .container{width:min(92%,var(--max));margin:auto}
+
+    /* NAV */
+    .nav{
+      position:absolute;
       top:0;
-      z-index:20;
-      background:rgba(247,243,238,.88);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(0,0,0,.06);
+      width:100%;
+      padding:20px 0;
+      z-index:10;
+      color:#fff;
     }
 
-    .nav{
+    .nav-inner{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:18px 0;
-      gap:20px;
-      flex-wrap:wrap;
     }
 
-    .brand{
-      font-size:1.05rem;
-      font-weight:700;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-
-    .brand small{
-      display:block;
-      font-size:.68rem;
-      color:var(--muted);
-      letter-spacing:.18em;
-      margin-top:2px;
-    }
-
-    .nav-links{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      color:var(--muted);
-      font-size:.95rem;
-      align-items:center;
-    }
+    .logo{font-weight:600;letter-spacing:.1em}
 
     .btn{
-      display:inline-block;
-      padding:14px 22px;
+      padding:12px 22px;
       border-radius:999px;
-      font-weight:600;
-      transition:.25s ease;
-    }
-
-    .btn-primary{
       background:var(--accent);
       color:#fff;
-      box-shadow:var(--shadow);
+      font-size:.9rem;
     }
 
-    .btn-outline{
-      border:1px solid rgba(255,255,255,.4);
-      color:#fff;
-      background:rgba(255,255,255,.08);
-    }
-
+    /* HERO */
     .hero{
-      min-height:92vh;
+      height:100vh;
+      background:
+        linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
+        url('IMAGENES/image0.jpeg') center/cover no-repeat;
       display:flex;
       align-items:center;
       color:#fff;
-      background:
-        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
     }
 
-    .hero-inner{
-      width:min(92%,1180px);
-      margin:0 auto;
-      padding:90px 0;
-    }
-
-    .eyebrow{
-      text-transform:uppercase;
-      letter-spacing:.22em;
-      font-size:.78rem;
-      margin-bottom:16px;
-      opacity:.92;
+    .hero-content{
+      max-width:700px;
     }
 
     .hero h1{
-      max-width:760px;
-      font-size:clamp(2.6rem,6vw,5.4rem);
-      line-height:1.02;
-      margin-bottom:18px;
+      font-size:clamp(2.8rem,6vw,5rem);
+      margin-bottom:20px;
     }
 
     .hero p{
-      max-width:700px;
-      font-size:1.08rem;
-      color:rgba(255,255,255,.92);
-      margin-bottom:16px;
+      margin-bottom:20px;
+      font-size:1.1rem;
     }
 
-    .hero-note{
-      font-size:.95rem;
-      color:rgba(255,255,255,.82);
-      margin-bottom:28px;
-    }
+    /* SECTIONS */
+    section{padding:100px 0}
 
-    .hero-actions{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-
-    .section{padding:90px 0}
     .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:end;
-      gap:20px;
-      flex-wrap:wrap;
-      margin-bottom:34px;
+      margin-bottom:40px;
     }
 
     .section-head h2{
-      font-size:clamp(2rem,4vw,3.1rem);
-      line-height:1.05;
+      font-size:2.5rem;
+      margin-bottom:10px;
     }
 
     .section-head p{
-      max-width:560px;
       color:var(--muted);
+      max-width:600px;
     }
 
-    .intro-grid,.apartments-grid,.amenities-grid,.contact-grid{
+    /* GRID */
+    .grid{
       display:grid;
       gap:24px;
     }
 
-    .intro-grid{grid-template-columns:1.1fr .9fr}
-    .apartments-grid{grid-template-columns:repeat(3,1fr)}
-    .amenities-grid{grid-template-columns:repeat(4,1fr)}
-    .contact-grid{grid-template-columns:1fr 1fr;align-items:start}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
 
     .card{
-      background:var(--card);
-      border:1px solid var(--border);
+      background:#fff;
       border-radius:var(--radius);
-      box-shadow:var(--shadow);
       overflow:hidden;
+      border:1px solid var(--border);
     }
 
-    .card-content{padding:30px}
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
 
-    .lead{font-size:1.08rem;color:var(--muted)}
+    .card-content{
+      padding:20px;
+    }
 
-    .stats{
+    /* AMENITIES */
+    .amenities{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:22px;
-    }
-
-    .stat{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:18px;
-    }
-
-    .stat strong{
-      display:block;
-      font-size:1.35rem;
-      margin-bottom:6px;
-    }
-
-    .image-fill{
-      min-height:420px;
-      background:url('IMAGENES/imagen0.jpeg') center/cover no-repeat;
-    }
-
-    .apt-image{
-      height:240px;
-      background-size:cover;
-      background-position:center;
-    }
-
-    .apt-1{background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80')}
-    .apt-2{background-image:url('https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80')}
-    .apt-3{background-image:url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80')}
-
-    .apt-card h3{
-      font-size:1.35rem;
-      margin-bottom:10px;
-    }
-
-    .apt-card p{
-      color:var(--muted);
-      margin-bottom:16px;
-    }
-
-    .pill-row{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .pill{
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:#fff;
-      color:var(--muted);
-      font-size:.9rem;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
     }
 
     .amenity{
       background:#fff;
+      padding:20px;
+      border-radius:12px;
       border:1px solid var(--border);
-      border-radius:16px;
-      padding:24px;
     }
 
-    .amenity h4{
-      margin-bottom:10px;
-      font-size:1.02rem;
-    }
-
-    .amenity p{
-      color:var(--muted);
-      font-size:.95rem;
-    }
-
-    .location{
-      background:linear-gradient(135deg,#1c1c1c,#3b342d);
+    /* CONTACT */
+    .contact{
+      background:#1a1a1a;
       color:#fff;
+      padding:80px 0;
+      text-align:center;
     }
 
-    .location-box{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
-      align-items:center;
-    }
-
-    .map-placeholder{
-      min-height:360px;
-      border-radius:20px;
-      background:
-        linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,.18)),
-        url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-      border:1px solid rgba(255,255,255,.12);
-    }
-
-    .location p{
-      color:rgba(255,255,255,.84);
-      margin:14px 0 24px;
-    }
-
-    .contact-card{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:20px;
-      box-shadow:var(--shadow);
-      padding:30px;
-    }
-
-    .contact-list{
-      display:grid;
-      gap:14px;
-      margin-top:18px;
-      color:var(--muted);
-    }
-
-    .wa-link{
-      color:var(--accent);
-      font-weight:700;
-    }
+    .contact a{color:#fff;text-decoration:underline}
 
     footer{
-      padding:30px 0 40px;
+      padding:30px;
+      text-align:center;
+      font-size:.9rem;
       color:var(--muted);
-      font-size:.94rem;
     }
 
-    .footer-wrap{
-      display:flex;
-      justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
-      border-top:1px solid rgba(0,0,0,.08);
-      padding-top:22px;
-    }
-
-    @media (max-width: 980px){
-      .intro-grid,
-      .apartments-grid,
-      .amenities-grid,
-      .contact-grid,
-      .location-box{
-        grid-template-columns:1fr;
-      }
-      .stats{grid-template-columns:1fr}
+    @media(max-width:900px){
+      .grid-3,.amenities{grid-template-columns:1fr}
     }
   </style>
 </head>
+
 <body>
 
-  <div class="topbar">
-    <div class="container nav">
-      <div class="brand">
-        Noam By the Sea
-        <small>Tamarindo · Costa Rica</small>
-      </div>
-      <div class="nav-links">
-  <a href="#apartamentos" data-es="Apartamentos" data-en="Apartments">Apartamentos</a>
-  <a href="#amenidades" data-es="Amenidades" data-en="Amenities">Amenidades</a>
-  <a href="#ubicacion" data-es="Ubicación" data-en="Location">Ubicación</a>
-  <a href="#reservas" data-es="Reservar" data-en="Book">Reservar</a>
-
-  <select id="languageSwitcher" style="padding:8px 10px;border-radius:10px;border:1px solid rgba(0,0,0,.15);background:#fff;">
-    <option value="es">ES</option>
-    <option value="en">EN</option>
-  </select>
+<!-- NAV -->
+<div class="nav">
+  <div class="container nav-inner">
+    <div class="logo">Noam By the Sea</div>
+    <a href="#contact" class="btn">Book</a>
+  </div>
 </div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <h1>Exclusive oceanfront apartments in Tamarindo</h1>
+    <p>
+      Designed for couples seeking privacy, design and calm.  
+      A refined vacation experience in Costa Rica.
+    </p>
+    <p style="font-size:.9rem;opacity:.8">
+      Exclusive for couples and guests 13+
+    </p>
+    <a href="#contact" class="btn">Book your stay</a>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2>A refined stay by the sea</h2>
+      <p>
+        Contemporary design, natural light and a calm atmosphere inspired by Tamarindo’s coastal lifestyle.
+      </p>
     </div>
   </div>
+</section>
 
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="eyebrow" data-es="Apartamentos vacacionales exclusivos" data-en="Exclusive vacation apartments">Apartamentos vacacionales exclusivos</div>
-
-<h1 data-es="Apartamentos exclusivos frente al mar en Tamarindo"
-    data-en="Exclusive oceanfront apartments in Tamarindo">
-  Apartamentos exclusivos frente al mar en Tamarindo
-</h1>
-
-<p data-es="Noam By the Sea ofrece una experiencia sofisticada para parejas que buscan privacidad, diseño y descanso en uno de los destinos más especiales de Costa Rica."
-   data-en="Noam By the Sea offers a sophisticated experience for couples seeking privacy, design, and relaxation in one of Costa Rica’s most special destinations.">
-  Noam By the Sea ofrece una experiencia sofisticada para parejas que buscan privacidad, diseño y descanso en uno de los destinos más especiales de Costa Rica.
-</p>
-
-<div class="hero-note"
-     data-es="Exclusivo para parejas y huéspedes a partir de los 13 años."
-     data-en="Exclusive for couples and guests ages 13 and up.">
-  Exclusivo para parejas y huéspedes a partir de los 13 años.
-</div>
-     <div class="hero-actions">
-  <a class="btn btn-primary" href="#reservas" data-es="Reservar ahora" data-en="Book now">Reservar ahora</a>
-  <a class="btn btn-outline" href="#apartamentos" data-es="Ver apartamentos" data-en="View apartments">Ver apartamentos</a>
-</div>
+<!-- APARTMENTS -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2>Apartments</h2>
+      <p>Spaces designed for elegant and quiet stays.</p>
     </div>
-  </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="intro-grid">
-        <div class="card">
-          <div class="card-content">
-            <div class="section-head" style="margin-bottom:18px;">
-              <h2>Una estancia exclusiva cerca de la playa</h2>
-            </div>
-            <p class="lead">
-              Diseñados para escapadas premium, nuestros apartamentos vacacionales combinan
-              elegancia contemporánea, comodidad y una atmósfera serena inspirada en el mar.
-            </p>
-
-            <div class="stats">
-              <div class="stat">
-                <strong>Exclusivo</strong>
-                Para parejas y huéspedes 13+
-              </div>
-              <div class="stat">
-                <strong>Premium</strong>
-                Diseño, privacidad y confort
-              </div>
-              <div class="stat">
-               
-               
-              </div>
-            </div>
-          </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <img src="IMAGENES/image0.jpeg">
+        <div class="card-content">
+          <h3>Signature Suite</h3>
+          <p>Perfect for romantic escapes.</p>
         </div>
-        <div class="card image-fill"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="apartamentos">
-    <div class="container">
-      <div class="section-head">
-        <h2>Espacios que elevan cada estancia</h2>
-        <p>
-          Cada apartamento ha sido pensado para quienes valoran la estética y una experiencia vacacional de alto nivel.
-        </p>
       </div>
 
-      <div class="apartments-grid">
-        <div class="card apt-card">
-          <div class="apt-image apt-1"></div>
-          <div class="card-content">
-            <h3>Suite Signature</h3>
-            <p>Ambiente sofisticado, cama king y espacios ideales para una escapada en pareja.</p>
-            <div class="pill-row">
-              <span class="pill">Escapadas románticas</span>
-              <span class="pill">Diseño premium</span>
-            </div>
-          </div>
+      <div class="card">
+        <img src="IMAGENES/image0.jpeg">
+        <div class="card-content">
+          <h3>Luxury Apartment</h3>
+          <p>Comfort and contemporary design.</p>
         </div>
+      </div>
 
-        <div class="card apt-card">
-          <div class="apt-image apt-2"></div>
-          <div class="card-content">
-            <h3>Apartamento Luxury</h3>
-            <p>Comodidad contemporánea y privacidad para estancias tranquilas junto al mar.</p>
-            <div class="pill-row">
-              <span class="pill">Estancia vacacional</span>
-              <span class="pill">Ambiente sereno</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card apt-card">
-          <div class="apt-image apt-3"></div>
-          <div class="card-content">
-            <h3>Penthouse Exclusivo</h3>
-            <p>Una experiencia elevada con vistas, amplitud y un estilo refinado para desconectar.</p>
-            <div class="pill-row">
-              <span class="pill">Máxima privacidad</span>
-              <span class="pill">Experiencia premium</span>
-            </div>
-          </div>
+      <div class="card">
+        <img src="IMAGENES/image0.jpeg">
+        <div class="card-content">
+          <h3>Penthouse</h3>
+          <p>Elevated experience and privacy.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="amenidades">
-    <div class="container">
-      <div class="section-head">
-        <h2>Amenidades</h2>
-        <p>Todo lo necesario para vivir Tamarindo con comodidad, estilo y tranquilidad.</p>
-      </div>
-
-      <div class="amenities-grid">
-        <div class="amenity">
-          <h4>Piscina infinity</h4>
-          <p>Un espacio perfecto para relajarse con una atmósfera sofisticada.</p>
-        </div>
-        <div class="amenity">
-          <h4>Cerca de la playa</h4>
-          <p>Ubicación privilegiada para disfrutar del mar y el estilo de vida costero.</p>
-        </div>
-        <div class="amenity">
-          <h4>WiFi de alta velocidad</h4>
-          <p>Conectividad ideal para estancias cómodas y sin interrupciones.</p>
-        </div>
-        <div class="amenity">
-          <h4>Diseño elegante</h4>
-          <p>Interiores modernos pensados para una experiencia visual y funcional premium.</p>
-        </div>
-      </div>
+<!-- AMENITIES -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2>Amenities</h2>
     </div>
-  </section>
 
-  <section class="section location" id="ubicacion">
-    <div class="container location-box">
-      <div>
-        <div class="eyebrow">Ubicación</div>
-        <h2>Tamarindo, Costa Rica</h2>
-        <p>
-          Un destino reconocido por su energía relajada, su gastronomía, su surf y sus atardeceres.
-          Noam By the Sea ofrece una base exclusiva para descubrir Tamarindo con estilo.
-        </p>
-        <a class="btn btn-primary" href="#reservas">Consultar disponibilidad</a>
-      </div>
-      <div class="map-placeholder"></div>
+    <div class="amenities">
+      <div class="amenity">Infinity pool</div>
+      <div class="amenity">Near the beach</div>
+      <div class="amenity">High-speed WiFi</div>
+      <div class="amenity">Elegant interiors</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="reservas">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h2>Reservas</h2>
-          <p class="lead">
-            Contáctanos para consultar disponibilidad y recibir atención personalizada.
-          </p>
-          <div class="contact-list">
-            <div><strong>Teléfono / WhatsApp:</strong> <a class="wa-link" href="https://wa.me/50686341984" target="_blank">+506 8634 1984</a></div>
-            <div><strong>Ubicación:</strong> Tamarindo, Costa Rica</div>
-            <div><strong>Estadía:</strong> Apartamentos vacacionales exclusivos</div>
-            <div><strong>Política:</strong> Exclusivo para parejas y huéspedes a partir de los 13 años</div>
-          </div>
-        </div>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2>Reservations</h2>
+  <p>Contact us for availability</p>
+  <p>
+    📱 <a href="https://wa.me/50686341984">+506 8634 1984</a>
+  </p>
+</section>
 
-        <div class="contact-card">
-          <h2>Mensaje rápido</h2>
-          <p class="lead">
-            Para una reserva directa, escríbenos por WhatsApp.
-          </p>
-          <p style="margin-top:20px;">
-            <a class="btn btn-primary" href="https://wa.me/50686341984?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Noam%20By%20the%20Sea" target="_blank">
-              Escribir por WhatsApp
-            </a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+<footer>
+  © 2026 Noam By the Sea · Tamarindo, Costa Rica
+</footer>
 
-  <footer>
-    <div class="container footer-wrap">
-      <div>© 2026 Noam By the Sea</div>
-      <div>Tamarindo, Costa Rica · Apartamentos vacacionales exclusivos</div>
-    </div>
-  </footer>
-<script>
-  const switcher = document.getElementById('languageSwitcher');
-
-  function setLanguage(lang) {
-    document.documentElement.lang = lang;
-
-    document.querySelectorAll('[data-es]').forEach(el => {
-      const text = el.getAttribute(data-${lang});
-      if (text) el.textContent = text;
-    });
-
-    localStorage.setItem('siteLanguage', lang);
-  }
-
-  const savedLang = localStorage.getItem('siteLanguage') || 'es';
-  switcher.value = savedLang;
-  setLanguage(savedLang);
-
-  switcher.addEventListener('change', (e) => {
-    setLanguage(e.target.value);
-  });
-</script>
 </body>
 </html>
