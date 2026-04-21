@@ -345,29 +345,42 @@
         <small>Tamarindo · Costa Rica</small>
       </div>
       <div class="nav-links">
-        <a href="#apartamentos">Apartamentos</a>
-        <a href="#amenidades">Amenidades</a>
-        <a href="#ubicacion">Ubicación</a>
-        <a href="#reservas">Reservar</a>
-      </div>
+  <a href="#apartamentos" data-es="Apartamentos" data-en="Apartments">Apartamentos</a>
+  <a href="#amenidades" data-es="Amenidades" data-en="Amenities">Amenidades</a>
+  <a href="#ubicacion" data-es="Ubicación" data-en="Location">Ubicación</a>
+  <a href="#reservas" data-es="Reservar" data-en="Book">Reservar</a>
+
+  <select id="languageSwitcher" style="padding:8px 10px;border-radius:10px;border:1px solid rgba(0,0,0,.15);background:#fff;">
+    <option value="es">ES</option>
+    <option value="en">EN</option>
+  </select>
+</div>
     </div>
   </div>
 
   <section class="hero">
     <div class="hero-inner">
-      <div class="eyebrow">Apartamentos vacacionales exclusivos</div>
-      <h1>Apartamentos exclusivos frente al mar en Tamarindo</h1>
-      <p>
-        Noam By the Sea ofrece una experiencia sofisticada para parejas que buscan privacidad,
-        diseño y descanso en uno de los destinos más especiales de Costa Rica.
-      </p>
-      <div class="hero-note">
-        Exclusivo para parejas y huéspedes a partir de los 13 años.
-      </div>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#reservas">Reservar ahora</a>
-        <a class="btn btn-outline" href="#apartamentos">Ver apartamentos</a>
-      </div>
+      <div class="eyebrow" data-es="Apartamentos vacacionales exclusivos" data-en="Exclusive vacation apartments">Apartamentos vacacionales exclusivos</div>
+
+<h1 data-es="Apartamentos exclusivos frente al mar en Tamarindo"
+    data-en="Exclusive oceanfront apartments in Tamarindo">
+  Apartamentos exclusivos frente al mar en Tamarindo
+</h1>
+
+<p data-es="Noam By the Sea ofrece una experiencia sofisticada para parejas que buscan privacidad, diseño y descanso en uno de los destinos más especiales de Costa Rica."
+   data-en="Noam By the Sea offers a sophisticated experience for couples seeking privacy, design, and relaxation in one of Costa Rica’s most special destinations.">
+  Noam By the Sea ofrece una experiencia sofisticada para parejas que buscan privacidad, diseño y descanso en uno de los destinos más especiales de Costa Rica.
+</p>
+
+<div class="hero-note"
+     data-es="Exclusivo para parejas y huéspedes a partir de los 13 años."
+     data-en="Exclusive for couples and guests ages 13 and up.">
+  Exclusivo para parejas y huéspedes a partir de los 13 años.
+</div>
+     <div class="hero-actions">
+  <a class="btn btn-primary" href="#reservas" data-es="Reservar ahora" data-en="Book now">Reservar ahora</a>
+  <a class="btn btn-outline" href="#apartamentos" data-es="Ver apartamentos" data-en="View apartments">Ver apartamentos</a>
+</div>
     </div>
   </section>
 
@@ -534,6 +547,27 @@
       <div>Tamarindo, Costa Rica · Apartamentos vacacionales exclusivos</div>
     </div>
   </footer>
+<script>
+  const switcher = document.getElementById('languageSwitcher');
 
+  function setLanguage(lang) {
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-es]').forEach(el => {
+      const text = el.getAttribute(data-${lang});
+      if (text) el.textContent = text;
+    });
+
+    localStorage.setItem('siteLanguage', lang);
+  }
+
+  const savedLang = localStorage.getItem('siteLanguage') || 'es';
+  switcher.value = savedLang;
+  setLanguage(savedLang);
+
+  switcher.addEventListener('change', (e) => {
+    setLanguage(e.target.value);
+  });
+</script>
 </body>
 </html>
